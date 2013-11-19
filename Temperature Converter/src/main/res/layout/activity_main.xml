@@ -1,0 +1,107 @@
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bg"
+    android:baselineAligned="true"
+    android:padding="50px">
+
+    <EditText
+        android:id="@+id/valueInput"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned|numberDecimal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/temperatureResult"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/temperatureType"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="From"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal" />
+
+    <RadioGroup
+        android:id="@+id/fromType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/valueInput">
+
+        <RadioButton
+            android:id="@+id/fromCels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/celsius" />
+
+        <RadioButton
+            android:id="@+id/fromFahr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/farenheit" />
+
+        <RadioButton
+            android:id="@+id/fromKel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kelvin" />
+    </RadioGroup>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="To"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal" />
+
+    <RadioGroup
+        android:id="@+id/toType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/valueInput">
+
+        <RadioButton
+            android:id="@+id/toCels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/celsius" />
+
+        <RadioButton
+            android:id="@+id/toFahr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/farenheit" />
+
+        <RadioButton
+            android:id="@+id/toKel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kelvin" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:text="@string/calc"
+        android:onClick="onClick" />
+
+</LinearLayout>
