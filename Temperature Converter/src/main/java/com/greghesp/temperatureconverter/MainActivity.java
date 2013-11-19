@@ -112,6 +112,14 @@ public class MainActivity extends Activity {
                 out.setText(String.valueOf(ConverterUtil.convertFahrenheitToCelsius(inputValue)) + " & " + String.valueOf(ConverterUtil.convertFahrenheitToKelvin(inputValue)));
                 type.setText("Celsius + Kelvin");
                }
+            if ("Celsius".equals(tempValue)) {
+                out.setText(String.valueOf(ConverterUtil.convertCelsiusToFahrenheit(inputValue)) + " & " + String.valueOf(ConverterUtil.convertCelsiusToKelvin(inputValue)));
+                type.setText("Fahrenheit + Kelvin");
+            }
+            if ("Kelvin".equals(tempValue)) {
+                out.setText(String.valueOf(ConverterUtil.convertKelvinToCelsius(inputValue)) + " & " + String.valueOf(ConverterUtil.convertKelvinToFahrenheit(inputValue)));
+                type.setText("Celsius + Fahrenheit");
+            }
         }
 
         @Override
