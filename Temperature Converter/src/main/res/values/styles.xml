@@ -11,9 +11,10 @@
         <item name="android:shadowColor">#000000</item>
         <item name="android:shadowDx">5</item>
         <item name="android:shadowDy">5</item>
+        <item name="android:layout_marginBottom">20dp</item>
     </style>
 
-    <style name="temperature">
+    <style name="inputArea">
         <item name="android:paddingTop">30dp</item>
     </style>
 

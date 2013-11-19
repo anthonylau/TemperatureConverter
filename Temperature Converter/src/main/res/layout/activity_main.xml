@@ -25,19 +25,31 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="numberSigned|numberDecimal"
-            style="@style/temperature"
+            style="@style/inputArea"
             android:text="10" />
     </FrameLayout>
 
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/temperatureArray"
-        android:prompt="@string/temperaturePrompt"
-        style="@style/card"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp" />
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="108dp"
+        style="@style/card">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/temperatureName"
+            android:id="@+id/textView" />
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/temperatureArray"
+            android:prompt="@string/temperaturePrompt"
+            style="@style/inputArea"
+            android:layout_marginTop="30dp" />
+    </FrameLayout>
 
     <FrameLayout
         android:layout_width="fill_parent"

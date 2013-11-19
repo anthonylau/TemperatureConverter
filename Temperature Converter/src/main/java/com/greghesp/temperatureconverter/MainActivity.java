@@ -1,7 +1,11 @@
 package com.greghesp.temperatureconverter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -17,7 +21,6 @@ public class MainActivity extends Activity {
     private TextView type;
     private Spinner spinner1;
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,9 +33,27 @@ public class MainActivity extends Activity {
         addListenerOnSpinnerItemSelection();
     }
 
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()) {
+            case R.id.about:
+                startActivity(new Intent(this, About.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+
     public void addListenerOnSpinnerItemSelection() {
 
-        if (text.getText().toString().length() == 0) {
+        if (text.getText().length() == 0) {
             Toast.makeText(this, "Please enter a valid number",
                     Toast.LENGTH_LONG).show();
         }
@@ -46,7 +67,15 @@ public class MainActivity extends Activity {
 
         public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
             String tempValue = spinner1.getSelectedItem().toString();
-            float inputValue = Float.parseFloat(text.getText().toString());
+
+            float inputValue;
+            if(text.getText().length() == 0) {
+                 inputValue = Float.parseFloat("10");
+                 text.setText("10");
+            }
+            else {
+                 inputValue = Float.parseFloat(text.getText().toString());
+            }
 
             if ("Fahrenheit".equals(tempValue)) {
                 out.setText(String.valueOf(ConverterUtil.convertFahrenheitToCelsius(inputValue)) + " & " + String.valueOf(ConverterUtil.convertFahrenheitToKelvin(inputValue)));

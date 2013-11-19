@@ -12,6 +12,8 @@
     <string name="temperature">Temperature</string>
 
     <string name="temperaturePrompt">Select a temperature</string>
+    <string name="temperatureName">What temperature type is it?</string>
+    <string name="version">Version 0.1 (Beta) Copyright Greg Hesp</string>
 
     <string-array name="temperatureArray">
         <item>Celsius</item>
