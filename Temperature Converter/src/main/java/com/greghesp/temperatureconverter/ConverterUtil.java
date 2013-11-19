@@ -21,7 +21,7 @@ public class ConverterUtil {
         return Math.round(kelvin - 273.15);
     }
 
-    public static double covertKelvinToFahrenheit(float kelvin) {
+    public static double convertKelvinToFahrenheit(float kelvin) {
         return Math.round((kelvin - 273) * 1.8) + 32;
     }
 }

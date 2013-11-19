@@ -5,37 +5,39 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@drawable/bg"
     android:baselineAligned="true"
-    android:padding="50px">
+    android:padding="50px"
+    style="@style/AppTheme">
 
-    <EditText
-        android:id="@+id/valueInput"
+    <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberSigned|numberDecimal"/>
+        style="@style/card">
 
-    <TextView
-        android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/temperature"
+            android:id="@+id/textView3" />
+
+        <EditText
+            android:id="@+id/valueInput"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned|numberDecimal"
+            style="@style/temperature"
+            android:text="10" />
+    </FrameLayout>
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/temperatureResult"
-        android:layout_gravity="center_horizontal" />
+        android:entries="@array/temperatureArray"
+        android:prompt="@string/temperaturePrompt"
+        />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/temperatureType"
-        android:layout_gravity="center_horizontal" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="From"
-        android:id="@+id/textView2"
-        android:layout_gravity="center_horizontal" />
-
-    <RadioGroup
+    <!--<RadioGroup
         android:id="@+id/fromType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,13 +64,13 @@
     </RadioGroup>
 
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="To"
-        android:id="@+id/textView"
-        android:layout_gravity="center_horizontal" />
+        android:layout_marginTop="21dp"
+        android:text="@string/calc"
+        android:onClick="onClick" />
 
     <RadioGroup
         android:id="@+id/toType"
@@ -94,14 +96,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/kelvin" />
-    </RadioGroup>
+    </RadioGroup>-->
 
-    <Button
-        android:id="@+id/button1"
+    <FrameLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:text="@string/calc"
-        android:onClick="onClick" />
+        android:layout_height="fill_parent"
+        style="@style/card">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/temperatureResult"
+            android:layout_gravity="center_horizontal"
+            style="@style/temperatureResult"
+            android:textColor="#1e6f8d"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/temperatureType"
+            android:layout_gravity="center_horizontal"
+            style="@style/temperatureType" />
+    </FrameLayout>
 
 </LinearLayout>
