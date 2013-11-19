@@ -35,72 +35,13 @@
         android:layout_height="wrap_content"
         android:entries="@array/temperatureArray"
         android:prompt="@string/temperaturePrompt"
-        />
-
-    <!--<RadioGroup
-        android:id="@+id/fromType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/valueInput">
-
-        <RadioButton
-            android:id="@+id/fromCels"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/celsius" />
-
-        <RadioButton
-            android:id="@+id/fromFahr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/farenheit" />
-
-        <RadioButton
-            android:id="@+id/fromKel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/kelvin" />
-    </RadioGroup>
-
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:text="@string/calc"
-        android:onClick="onClick" />
-
-    <RadioGroup
-        android:id="@+id/toType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/valueInput">
-
-        <RadioButton
-            android:id="@+id/toCels"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/celsius" />
-
-        <RadioButton
-            android:id="@+id/toFahr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/farenheit" />
-
-        <RadioButton
-            android:id="@+id/toKel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/kelvin" />
-    </RadioGroup>-->
+        style="@style/card"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp" />
 
     <FrameLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="176dp"
         style="@style/card">
 
         <TextView
