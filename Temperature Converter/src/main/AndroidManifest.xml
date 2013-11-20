@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="17"
         android:targetSdkVersion="19" />
 
     <application
@@ -13,13 +13,12 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
         <activity
             android:name="com.greghesp.temperatureconverter.MainActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -27,9 +26,8 @@
         <activity android:name="com.greghesp.temperatureconverter.About"
             android:label="About"
             android:screenOrientation="portrait"
-            android:parentActivityName="com.greghesp.temperatureconverter.MainActivity">
+            android:parentActivityName="com.greghesp.ViewPager.MainActivity">
         </activity>
-
     </application>
 
 </manifest>

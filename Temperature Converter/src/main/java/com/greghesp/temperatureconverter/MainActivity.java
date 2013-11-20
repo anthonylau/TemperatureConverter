@@ -1,9 +1,12 @@
 package com.greghesp.temperatureconverter;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -11,51 +14,31 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 
-
-
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
     private EditText text;
-   // private TextView out;
-   // private TextView type;
     private Spinner spinner1;
 
+
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        text = (EditText) findViewById(R.id.valueInput);
-        //out = (TextView) findViewById(R.id.temperatureResult);
-        //type = (TextView) findViewById(R.id.temperatureType);
 
         ViewPager pager = (ViewPager) findViewById(R.id.viewPager);
         pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
 
+        text = (EditText) findViewById(R.id.valueInput);
         addListenerOnSpinnerItemSelection();
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main, menu);
         return true;
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()) {
-            case R.id.about:
-                startActivity(new Intent(this, About.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 
     public void addListenerOnSpinnerItemSelection() {
@@ -70,6 +53,16 @@ public class MainActivity extends Activity {
         }
     }
 
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()) {
+            case R.id.about:
+                startActivity(new Intent(this, About.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     class CustomOnItemSelectedListener implements AdapterView.OnItemSelectedListener {
 
         public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
@@ -77,11 +70,11 @@ public class MainActivity extends Activity {
 
             float inputValue;
             if(text.getText().length() == 0) {
-                 inputValue = Float.parseFloat("10");
-                 text.setText("10");
+                inputValue = Float.parseFloat("10");
+                text.setText("10");
             }
             else {
-                 inputValue = Float.parseFloat(text.getText().toString());
+                inputValue = Float.parseFloat(text.getText().toString());
             }
 
            /* if ("Fahrenheit".equals(tempValue)) {
@@ -111,12 +104,12 @@ public class MainActivity extends Activity {
         }
 
         @Override
-        public Fragment getItem(int pos){
+        public Fragment getItem(int pos) {
             switch(pos) {
 
-                case 0: return resultFragment.newInstance("FirstFragment, Instance 1");
-                case 1: return resultFragment.newInstance("SecondFragment, Instance 1");
-                default: return resultFragment.newInstance("ThirdFragment, Default");
+                case 0: return resultFragment.newInstance("resultFragment, Instance 1");
+                case 1: return resultFragment.newInstance("resultFragment, Instance 2");
+                default: return resultFragment.newInstance("resultFragment, Default");
             }
         }
 
@@ -125,7 +118,5 @@ public class MainActivity extends Activity {
             return 3;
         }
     }
-
-
 }
 
