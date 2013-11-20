@@ -3,12 +3,7 @@ package com.greghesp.temperatureconverter;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,25 +13,31 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 
 
 
 public class MainActivity extends Activity {
     private EditText text;
-    private TextView out;
-    private TextView type;
+   // private TextView out;
+   // private TextView type;
     private Spinner spinner1;
-    private ViewPager mPager;
-    private PagerAdapter mPagerAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         text = (EditText) findViewById(R.id.valueInput);
         //out = (TextView) findViewById(R.id.temperatureResult);
         //type = (TextView) findViewById(R.id.temperatureType);
+
+        ViewPager pager = (ViewPager) findViewById(R.id.viewPager);
+        pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
 
         addListenerOnSpinnerItemSelection();
     }
@@ -56,8 +57,6 @@ public class MainActivity extends Activity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
 
     public void addListenerOnSpinnerItemSelection() {
 
@@ -85,8 +84,6 @@ public class MainActivity extends Activity {
                  inputValue = Float.parseFloat(text.getText().toString());
             }
 
-            new ScreenSlidePagerActivity();
-
            /* if ("Fahrenheit".equals(tempValue)) {
                 out.setText(String.valueOf(ConverterUtil.convertFahrenheitToCelsius(inputValue)) + " & " + String.valueOf(ConverterUtil.convertFahrenheitToKelvin(inputValue)));
                 type.setText("Celsius + Kelvin");
@@ -107,37 +104,28 @@ public class MainActivity extends Activity {
 
     }
 
-    class ScreenSlidePagerActivity extends FragmentActivity
+    private class MyPagerAdapter extends FragmentPagerAdapter {
 
-    {
-        private static final int NUM_PAGES = 2;
+        public MyPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
 
         @Override
-        protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        public Fragment getItem(int pos){
+            switch(pos) {
 
-        mPager = (ViewPager) findViewById(R.id.pager);
-        mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
-        mPager.setAdapter(mPagerAdapter);
-    }
-
-        private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
-            public ScreenSlidePagerAdapter(FragmentManager fm) {
-                super(fm);
-            }
-
-            @Override
-            public Fragment getItem(int position) {
-                return new ScreenSlidePageFragment();
-            }
-
-            @Override
-            public int getCount() {
-                return NUM_PAGES;
+                case 0: return resultFragment.newInstance("FirstFragment, Instance 1");
+                case 1: return resultFragment.newInstance("SecondFragment, Instance 1");
+                default: return resultFragment.newInstance("ThirdFragment, Default");
             }
         }
+
+        @Override
+        public int getCount() {
+            return 3;
+        }
     }
+
 
 }
 
