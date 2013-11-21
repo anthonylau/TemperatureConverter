@@ -13,19 +13,21 @@ import android.widget.Spinner;
 public class CustomOnItemSelectedListener implements AdapterView.OnItemSelectedListener {
 public EditText text;
 public Spinner spinner1;
+    public String degree;
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
         String tempValue = spinner1.getSelectedItem().toString();
-        public String degree = "jobby";
 
         float inputValue = 0f;
         if(text.getText().length() == 0) {
-            inputValue = Float.parseFloat("10");
-            text.setText("10");
+            inputValue = Float.parseFloat("0");
+            text.setText("0");
         }
         else {
             inputValue = Float.parseFloat(text.getText().toString());
         }
+
+        degree = "jobby";
 
            /*if ("Fahrenheit".equals(tempValue)) {
                 out.setText(String.valueOf(ConverterUtil.convertFahrenheitToCelsius(inputValue)) + " & " + String.valueOf(ConverterUtil.convertFahrenheitToKelvin(inputValue)));

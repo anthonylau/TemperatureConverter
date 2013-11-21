@@ -22,6 +22,7 @@ public class MainActivity extends FragmentActivity {
     public MyPagerAdapter myPager;
     public CustomOnItemSelectedListener selectedListener;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +31,12 @@ public class MainActivity extends FragmentActivity {
         ViewPager pager = (ViewPager) findViewById(R.id.viewPager);
         myPager = new MyPagerAdapter(getSupportFragmentManager());
         pager.setAdapter(myPager);
+
         selectedListener = new CustomOnItemSelectedListener();
 
         text = (EditText) findViewById(R.id.valueInput);
         selectedListener.text = text;
+        myPager.selectedListener = selectedListener;
 
         addListenerOnSpinnerItemSelection();
 
@@ -46,17 +49,9 @@ public class MainActivity extends FragmentActivity {
     }
 
     public void addListenerOnSpinnerItemSelection() {
-
-        if (text.getText().length() == 0) {
-            Toast.makeText(this, "Please enter a valid number",
-                    Toast.LENGTH_LONG).show();
-        }
-        else {
             spinner1 = (Spinner) findViewById(R.id.spinner1);
             spinner1.setOnItemSelectedListener(selectedListener);
             selectedListener.spinner1 = spinner1;
-
-        }
     }
 
     public boolean onOptionsItemSelected(MenuItem item){

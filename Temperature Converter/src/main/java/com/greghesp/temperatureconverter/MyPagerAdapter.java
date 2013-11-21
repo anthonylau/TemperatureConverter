@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class MyPagerAdapter extends FragmentPagerAdapter {
 
+    public CustomOnItemSelectedListener selectedListener;
+
     public MyPagerAdapter(FragmentManager fm) {
         super(fm);
     }
@@ -14,7 +16,7 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int pos) {
         switch(pos) {
 
-            case 0: return resultFragment.newInstance("resultFragment, Instance 1");
+            case 0: return resultFragment.newInstance(selectedListener.degree);
             case 1: return resultFragment.newInstance("resultFragment, Instance 2");
             default: return resultFragment.newInstance("resultFragment, Default");
         }
