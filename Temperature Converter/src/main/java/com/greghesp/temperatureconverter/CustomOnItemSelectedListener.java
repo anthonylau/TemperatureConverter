@@ -2,21 +2,20 @@ package com.greghesp.temperatureconverter;
 
 import android.view.View;
 import android.widget.AdapterView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
 
 public class CustomOnItemSelectedListener implements AdapterView.OnItemSelectedListener {
-public EditText text;
-public Spinner spinner1;
+    //Define Components
+    public EditText text;
+    public Spinner spinner1;
+    //Define Variables
     public String degree;
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
+        //Set the selected item on spinner1 to the variable tempValue
         String tempValue = spinner1.getSelectedItem().toString();
+
 
         float inputValue = 0f;
         if(text.getText().length() == 0) {

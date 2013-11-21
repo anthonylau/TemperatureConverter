@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 public class MyPagerAdapter extends FragmentPagerAdapter {
-
+    //Define Listeners
     public CustomOnItemSelectedListener selectedListener;
 
     public MyPagerAdapter(FragmentManager fm) {

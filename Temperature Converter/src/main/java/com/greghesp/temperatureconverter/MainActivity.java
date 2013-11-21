@@ -11,24 +11,35 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 public class MainActivity extends FragmentActivity {
+    //Define Components
     public EditText text;
     public Spinner spinner1;
+    //Define Adapters
     public MyPagerAdapter myPager;
+    //Define Event Listeners
     public CustomOnItemSelectedListener selectedListener;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Set the master layout file
         setContentView(R.layout.activity_main);
-
+        //***Not sure***
         ViewPager pager = (ViewPager) findViewById(R.id.viewPager);
+        //***Not sure***
         myPager = new MyPagerAdapter(getSupportFragmentManager());
+        //***Not sure***
         pager.setAdapter(myPager);
+        //***Not sure***
         selectedListener = new CustomOnItemSelectedListener();
+        //Assign the text variable to the layout element
         text = (EditText) findViewById(R.id.valueInput);
-        selectedListener.text = text;
+        //Call this class
         addListenerOnSpinnerItemSelection();
+        //Set text in selectedListener equal to the text definition in here
+        selectedListener.text = text;
+        //Set selectedListener in myPager equal to the definition in here
         myPager.selectedListener = selectedListener;
     }
 
