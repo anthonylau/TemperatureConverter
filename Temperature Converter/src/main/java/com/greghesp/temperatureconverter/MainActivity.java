@@ -32,10 +32,9 @@ public class MainActivity extends FragmentActivity {
         pager.setAdapter(myPager);
         selectedListener = new CustomOnItemSelectedListener();
 
-        selectedListener.text = text;
-        selectedListener.spinner1 = spinner1;
-
         text = (EditText) findViewById(R.id.valueInput);
+        selectedListener.text = text;
+
         addListenerOnSpinnerItemSelection();
 
     }
@@ -55,6 +54,8 @@ public class MainActivity extends FragmentActivity {
         else {
             spinner1 = (Spinner) findViewById(R.id.spinner1);
             spinner1.setOnItemSelectedListener(selectedListener);
+            selectedListener.spinner1 = spinner1;
+
         }
     }
 

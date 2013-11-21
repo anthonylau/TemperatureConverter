@@ -14,9 +14,9 @@ public class CustomOnItemSelectedListener implements AdapterView.OnItemSelectedL
 public EditText text;
 public Spinner spinner1;
 
-
     public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
         String tempValue = spinner1.getSelectedItem().toString();
+        public String degree = "jobby";
 
         float inputValue = 0f;
         if(text.getText().length() == 0) {
