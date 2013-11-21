@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Temperature Converter/Temperature Converter.iml" filepath="$PROJECT_DIR$/Temperature Converter/Temperature Converter.iml" />
       <module fileurl="file://$PROJECT_DIR$/TemperatureConverter.iml" filepath="$PROJECT_DIR$/TemperatureConverter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ViewPageIndicator/ViewPageIndicator.iml" filepath="$PROJECT_DIR$/ViewPageIndicator/ViewPageIndicator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ViewPagerIndicator/ViewPagerIndicator.iml" filepath="$PROJECT_DIR$/ViewPagerIndicator/ViewPagerIndicator.iml" />
     </modules>
   </component>
 </project>

@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/holo_orange_dark" >
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tvFragFirst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:textSize="26dp"
-        android:text="TextView" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/temperatureResult"
+        android:layout_gravity="center_horizontal"
+        style="@style/temperatureResult"
+        android:textColor="#1e6f8d"
+        android:textSize="30sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/temperatureType"
+        android:layout_gravity="center_horizontal"
+        style="@style/temperatureType" />
+
 </RelativeLayout>

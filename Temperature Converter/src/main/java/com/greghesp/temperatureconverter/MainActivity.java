@@ -17,10 +17,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity {
-    private EditText text;
-    private Spinner spinner1;
-
-
+    public EditText text;
+    public Spinner spinner1;
+    public MyPagerAdapter myPager;
+    public CustomOnItemSelectedListener selectedListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,12 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         ViewPager pager = (ViewPager) findViewById(R.id.viewPager);
-        pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+        myPager = new MyPagerAdapter(getSupportFragmentManager());
+        pager.setAdapter(myPager);
+        selectedListener = new CustomOnItemSelectedListener();
+
+        selectedListener.text = text;
+        selectedListener.spinner1 = spinner1;
 
         text = (EditText) findViewById(R.id.valueInput);
         addListenerOnSpinnerItemSelection();
@@ -49,7 +54,7 @@ public class MainActivity extends FragmentActivity {
         }
         else {
             spinner1 = (Spinner) findViewById(R.id.spinner1);
-            spinner1.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+            spinner1.setOnItemSelectedListener(selectedListener);
         }
     }
 
@@ -63,60 +68,5 @@ public class MainActivity extends FragmentActivity {
         }
     }
 
-    class CustomOnItemSelectedListener implements AdapterView.OnItemSelectedListener {
-
-        public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
-            String tempValue = spinner1.getSelectedItem().toString();
-
-            float inputValue;
-            if(text.getText().length() == 0) {
-                inputValue = Float.parseFloat("10");
-                text.setText("10");
-            }
-            else {
-                inputValue = Float.parseFloat(text.getText().toString());
-            }
-
-           /* if ("Fahrenheit".equals(tempValue)) {
-                out.setText(String.valueOf(ConverterUtil.convertFahrenheitToCelsius(inputValue)) + " & " + String.valueOf(ConverterUtil.convertFahrenheitToKelvin(inputValue)));
-                type.setText("Celsius + Kelvin");
-               }
-            if ("Celsius".equals(tempValue)) {
-                out.setText(String.valueOf(ConverterUtil.convertCelsiusToFahrenheit(inputValue)) + " & " + String.valueOf(ConverterUtil.convertCelsiusToKelvin(inputValue)));
-                type.setText("Fahrenheit + Kelvin");
-            }
-            if ("Kelvin".equals(tempValue)) {
-                out.setText(String.valueOf(ConverterUtil.convertKelvinToCelsius(inputValue)) + " & " + String.valueOf(ConverterUtil.convertKelvinToFahrenheit(inputValue)));
-                type.setText("Celsius + Fahrenheit");
-            }*/
-        }
-
-        @Override
-        public void onNothingSelected(AdapterView<?> arg0) {
-        }
-
-    }
-
-    private class MyPagerAdapter extends FragmentPagerAdapter {
-
-        public MyPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int pos) {
-            switch(pos) {
-
-                case 0: return resultFragment.newInstance("resultFragment, Instance 1");
-                case 1: return resultFragment.newInstance("resultFragment, Instance 2");
-                default: return resultFragment.newInstance("resultFragment, Default");
-            }
-        }
-
-        @Override
-        public int getCount() {
-            return 3;
-        }
-    }
 }
 
