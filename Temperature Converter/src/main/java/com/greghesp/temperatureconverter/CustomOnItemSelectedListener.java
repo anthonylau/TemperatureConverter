@@ -10,7 +10,7 @@ public class CustomOnItemSelectedListener implements AdapterView.OnItemSelectedL
     public EditText text;
     public Spinner spinner1;
     //Define Variables
-    public String degree = null;
+    public String degree;
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
         //Set the selected item on spinner1 to the variable tempValue
