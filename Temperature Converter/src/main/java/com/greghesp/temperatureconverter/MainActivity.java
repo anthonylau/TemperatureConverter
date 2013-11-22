@@ -25,18 +25,23 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         //Set the master layout file
         setContentView(R.layout.activity_main);
-        //***Not sure***
+
+        //Assign the ViewPager to the layout element
         ViewPager pager = (ViewPager) findViewById(R.id.viewPager);
-        //***Not sure***
+        //Set myPager to the class MyPagerAdapter with the method getSupportFragmentManager
         myPager = new MyPagerAdapter(getSupportFragmentManager());
-        //***Not sure***
+        //Set the adapter myPager to the layout element
         pager.setAdapter(myPager);
-        //***Not sure***
+
+        //Set selectedListener to the class CustomOnItemSelectedListener
         selectedListener = new CustomOnItemSelectedListener();
+
         //Assign the text variable to the layout element
         text = (EditText) findViewById(R.id.valueInput);
-        //Call this class
+
+        //Call this class from below
         addListenerOnSpinnerItemSelection();
+
         //Set text in selectedListener equal to the text definition in here
         selectedListener.text = text;
         //Set selectedListener in myPager equal to the definition in here

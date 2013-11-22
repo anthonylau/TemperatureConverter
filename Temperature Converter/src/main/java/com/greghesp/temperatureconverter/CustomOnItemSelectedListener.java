@@ -10,7 +10,7 @@ public class CustomOnItemSelectedListener implements AdapterView.OnItemSelectedL
     public EditText text;
     public Spinner spinner1;
     //Define Variables
-    public String degree;
+    public String degree = null;
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
         //Set the selected item on spinner1 to the variable tempValue
@@ -26,7 +26,7 @@ public class CustomOnItemSelectedListener implements AdapterView.OnItemSelectedL
             inputValue = Float.parseFloat(text.getText().toString());
         }
 
-        degree = "jobby";
+         degree = "jobby";
 
            /*if ("Fahrenheit".equals(tempValue)) {
                 out.setText(String.valueOf(ConverterUtil.convertFahrenheitToCelsius(inputValue)) + " & " + String.valueOf(ConverterUtil.convertFahrenheitToKelvin(inputValue)));
@@ -40,6 +40,7 @@ public class CustomOnItemSelectedListener implements AdapterView.OnItemSelectedL
                 out.setText(String.valueOf(ConverterUtil.convertKelvinToCelsius(inputValue)) + " & " + String.valueOf(ConverterUtil.convertKelvinToFahrenheit(inputValue)));
                 type.setText("Celsius + Fahrenheit");
             }*/
+
     }
 
     @Override
